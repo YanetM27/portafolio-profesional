@@ -5,7 +5,7 @@ function mostrarERP(tipo) {
 
     if (tipo === "keyUser") {
 
-        imagen.src = "Img/KeyUser.JPEG";
+        imagen.src = "Img/KeyUser.jpeg";
         imagen.alt = "Experiencia como Key User en Oracle Cloud";
 
     } else if (tipo === "agenteCambio") {

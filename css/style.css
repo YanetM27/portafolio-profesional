@@ -1,0 +1,1672 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 100px 20px;
+}
+:root {
+  --primColor: #dcdcdc;
+  --secoColor: #555555;
+  --cornerRad: 4px;
+}
+body {
+  background-color: #f4f4f4;
+    color: #343a40;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+/* =================================
+   MENÚ DE NAVEGACIÓN
+================================= */
+
+details {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 9999;
+}
+
+
+/* =================================
+   BOTÓN DEL MENÚ
+================================= */
+
+summary {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border: 1px solid #d8dee8;
+    border-radius: 12px;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    color: #365f91;
+
+    cursor: pointer;
+    user-select: none;
+
+    outline: none;
+
+    box-shadow:
+        0 5px 18px rgba(31, 41, 55, 0.10);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+/* Quitar marcador */
+
+summary::marker {
+    display: none;
+    font-size: 0;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+
+/* Icono hamburguesa */
+
+summary::before {
+    content: "☰";
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    color: #365f91;
+}
+
+
+/* Cuando está abierto */
+
+details[open] summary::before {
+    content: "×";
+
+    font-size: 28px;
+}
+
+
+/* Hover */
+
+summary:hover {
+    transform: translateY(-2px);
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 8px 22px rgba(31, 41, 55, 0.14);
+}
+
+
+/* =================================
+   MENÚ DESPLEGABLE
+================================= */
+
+.menu {
+    position: absolute;
+
+    top: 58px;
+    left: 0;
+
+    z-index: 9999;
+
+    width: 240px;
+
+    padding: 12px;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 16px;
+
+    background-color: rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+        0 12px 35px rgba(31, 41, 55, 0.14);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    overflow: hidden;
+
+    animation: abrirMenu 0.25s ease forwards;
+}
+
+
+details::before {
+    content: "← Click a menú";
+    color: var(--secoColor);
+    position: absolute;
+    margin-left: 80px;
+    padding: 10px 10px;
+    opacity: 0.4;
+}
+
+
+/* =================================
+   ENLACES
+================================= */
+
+.menu a {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 10px 14px;
+
+    margin: 0;
+
+    border-radius: 10px;
+
+    border: none;
+
+    color: #4b5563;
+
+    background-color: transparent;
+
+    text-decoration: none;
+
+    text-align: left;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+
+/* Hover de los enlaces */
+
+.menu a:hover {
+    background-color: #f1f5f9;
+
+    color: #365f91;
+
+    padding-left: 18px;
+}
+
+
+/* =================================
+   ANIMACIÓN
+================================= */
+
+@keyframes abrirMenu {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+/* =================================
+   SOBRE MÍ / PRESENTACIÓN
+================================= */
+
+#sobre-mi {
+    background-color: #f7f9fc;
+}
+
+.hero {
+    padding: 70px 0 80px;
+}
+
+.presentacion-card {
+    position: relative;
+
+    padding: 65px;
+    margin-top: 85px;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 24px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 10px 35px rgba(31, 41, 55, 0.08);
+
+    overflow: hidden;
+}
+
+/* Línea decorativa superior */
+.presentacion-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #365f91,
+        #527c8a
+    );
+}
+
+/* Foto */
+.foto-container {
+    display: inline-flex;
+
+    padding: 10px;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    box-shadow: 0 8px 25px rgba(31, 41, 55, 0.08);
+}
+
+.foto-perfil {
+    width: 260px;
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #ffffff;
+}
+
+/* Texto */
+.presentacion-etiqueta {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #527c8a;
+}
+
+.presentacion-card h1 {
+    margin-bottom: 25px;
+
+    font-size: 42px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    color: #1f2937;
+}
+
+.presentacion-card h1 span {
+    color: #365f91;
+}
+
+.presentacion-card p {
+    margin-bottom: 18px;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #5f6b7a;
+}
+
+.presentacion-principal {
+    font-size: 17px !important;
+}
+
+/* Separador */
+.presentacion-linea {
+    width: 55px;
+    height: 3px;
+
+    margin: 28px 0;
+
+    border-radius: 10px;
+
+    background-color: #527c8a;
+}
+
+/* Datos */
+.presentacion-datos {
+    display: flex;
+    gap: 45px;
+}
+
+.presentacion-datos div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.presentacion-datos strong {
+    font-size: 0.85rem;
+    color: #1f2937;
+}
+
+.presentacion-datos span {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* =================================
+   EXPERIENCIA LABORAL
+================================= */
+
+.experiencia-section {
+    padding: 80px 0;
+    background-color: #f7f9fc;
+}
+
+/* Título */
+.experiencia-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #1f2937;
+}
+
+/* =================================
+   TARJETAS DE EMPRESA
+================================= */
+
+.empresa {
+    height: 100%;
+    padding: 30px;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 20px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 4px 15px rgba(31, 41, 55, 0.06);
+
+    cursor: pointer;
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Línea superior */
+.empresa::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #365f91,
+        #527c8a
+    );
+}
+
+/* Hover */
+.empresa:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(31, 41, 55, 0.11);
+
+    border-color: #d8dee8;
+}
+
+/* Cuando está seleccionada */
+.empresa.active {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(31, 41, 55, 0.14);
+}
+
+/* =================================
+   LOGO
+================================= */
+
+.empresa-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.empresa-logo img {
+    width: 150px;
+    height: 85px;
+    object-fit: contain;
+}
+
+/* =================================
+   INFORMACIÓN
+================================= */
+
+.empresa-info h3 {
+    margin-bottom: 8px;
+
+    color: #1f2937;
+
+    font-size: 1.25rem;
+}
+
+.empresa-info h4 {
+    margin-bottom: 8px;
+
+    color: #365f91;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.fecha {
+    margin-bottom: 22px;
+
+    font-size: 0.85rem;
+
+    color: #7a8491;
+}
+
+/* =================================
+   LISTA
+================================= */
+
+.empresa-info ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.empresa-info li {
+    position: relative;
+
+    margin-bottom: 10px;
+    padding-left: 18px;
+
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    color: #5f6b7a;
+}
+
+.empresa-info li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 9px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background-color: #527c8a;
+}
+
+/* =================================
+   CARTA DE RECOMENDACIÓN
+================================= */
+
+.recomendacion-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 18px;
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: #365f91;
+
+    background-color: #f1f5f9;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.empresa:hover .recomendacion-link {
+    background-color: #e8eef5;
+    transform: translateX(3px);
+}
+
+
+/* =================================
+   VISOR DE CARTA
+================================= */
+
+.experiencia-col {
+    position: relative;
+}
+
+.recomendacion-container {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 50px;
+
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.80);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 9999;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    overflow: auto;
+
+    pointer-events: none;
+}
+
+.recomendacion-container.active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =================================
+   CARTA GRANDE
+================================= */
+
+.recomendacion-container > img {
+    display: block;
+
+    width: 600px !important;
+
+    min-width: 600px !important;
+    max-width: none !important;
+
+    height: auto !important;
+
+    max-height: none !important;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+/* =================================
+   TECNOLOGÍAS
+================================= */
+
+#tecnologias {
+    padding: 80px 0;
+    background-color: #f7f9fc;
+}
+
+/* Grupos */
+.tech-group {
+    margin-bottom: 65px;
+}
+
+.tech-group:last-child {
+    margin-bottom: 0;
+}
+
+.tech-group-title {
+    text-align: center;
+    margin-bottom: 12px;
+    color: #1f2937;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tech-group > p {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 35px;
+}
+
+/* Tarjetas */
+.tech-card {
+    position: relative;
+    height: 100%;
+    border: 1px solid #e5e9f0;
+    border-radius: 18px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(31, 41, 55, 0.05);
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Línea superior de color */
+.tech-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #4f6d7a;
+}
+
+/* Efecto al pasar el mouse */
+.tech-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(31, 41, 55, 0.10);
+    border-color: #d8dee8;
+}
+
+/* Contenido */
+.tech-card .card-body {
+    padding: 25px;
+}
+
+.tech-card h3 {
+    margin-bottom: 18px;
+    color: #1f2937;
+}
+
+/* Lista */
+.tech-card ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.tech-card li {
+    margin-bottom: 8px;
+    color: #5f6b7a;
+}
+
+.tech-card li:last-child {
+    margin-bottom: 0;
+}
+
+/* =================================
+   COLORES DE ACENTO
+================================= */
+
+.tech-lenguajes::before {
+    background-color: #365f91;
+}
+
+.tech-frameworks::before {
+    background-color: #527c8a;
+}
+
+.tech-apis::before {
+    background-color: #58758c;
+}
+
+.tech-database::before {
+    background-color: #607d8b;
+}
+
+.tech-git::before {
+    background-color: #4f6d7a;
+}
+
+.tech-mobile::before {
+    background-color: #64748b;
+}
+
+.tech-metodologias::before {
+    background-color: #526b7a;
+}
+
+.tech-cambio::before {
+    background-color: #708090;
+}
+
+
+
+
+/* =================================
+   EXPERIENCIA
+================================= */
+
+.empresa-info ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =================================
+   PROYECTOS
+================================= */
+
+#proyectos {
+    padding: 80px 0;
+    background-color: #f7f9fc;
+}
+
+#proyectos h2 {
+    text-align: center;
+
+    margin-bottom: 40px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #1f2937;
+}
+
+
+/* =================================
+   TARJETAS DE PROYECTOS
+================================= */
+
+.project-card {
+    position: relative;
+
+    height: 100%;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 20px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(31, 41, 55, 0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #365f91,
+        #527c8a
+    );
+
+    z-index: 2;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(31, 41, 55, 0.11);
+
+    border-color: #d8dee8;
+}
+
+
+/* =================================
+   IMÁGENES DE PROYECTOS
+================================= */
+
+.project-card .card-img-top {
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+
+    border: none;
+}
+
+
+/* =================================
+   CONTENIDO DE PROYECTOS
+================================= */
+
+.project-card .card-body {
+    padding: 25px;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+
+    color: #1f2937;
+}
+
+.project-card p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    color: #5f6b7a;
+}
+
+.project-tech {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.project-tech strong {
+    color: #1f2937;
+}
+
+
+/* =================================
+   BOTONES
+================================= */
+
+.project-card .btn-primary {
+    border: none;
+
+    padding: 9px 18px;
+
+    border-radius: 20px;
+
+    background-color: #365f91;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-card .btn-primary:hover {
+    background-color: #2f527d;
+
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   ERP
+================================= */
+
+.erp-role {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 18px;
+
+    background-color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.erp-role:hover {
+    transform: translateY(-4px);
+
+    border-color: #d8dee8;
+
+    box-shadow:
+        0 6px 18px rgba(31, 41, 55, 0.08);
+}
+
+.erp-role h4 {
+    margin-bottom: 10px;
+
+    color: #365f91;
+}
+
+.erp-role p {
+    margin-bottom: 10px;
+
+    font-size: 0.9rem;
+}
+
+.erp-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: #365f91;
+}
+
+
+/* =================================
+   IMAGEN ERP
+================================= */
+
+.erp-image-container {
+    display: none;
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.erp-image-container.active {
+    display: block;
+}
+
+.erp-image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(31, 41, 55, 0.12);
+}
+
+/* =================================
+   CARTAS DE RECOMENDACIÓN
+================================= */
+
+.recomendacion-container {
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    opacity: 0;
+
+    margin-top: 0;
+
+    transition:
+        grid-template-rows 0.5s ease,
+        opacity 0.4s ease,
+        margin-top 0.4s ease;
+}
+
+.recomendacion-container > img {
+    min-height: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    max-height: 500px;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(31, 41, 55, 0.12);
+
+    transform: scale(0.96);
+
+    transition:
+        transform 0.5s ease;
+}
+
+.recomendacion-container.active {
+    grid-template-rows: 1fr;
+
+    opacity: 1;
+
+    margin-top: 20px;
+}
+
+.recomendacion-container.active > img {
+    transform: scale(1);
+}
+
+.recomendacion-link {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 18px;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: #365f91;
+
+    background-color: #f1f5f9;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.empresa:hover .recomendacion-link {
+    background-color: #e8eef5;
+
+    transform: translateX(3px);
+}
+
+/* =================================
+   CURSOS Y CERTIFICACIONES
+================================= */
+
+.formacion-section {
+    padding: 80px 0;
+    background-color: #f7f9fc;
+}
+
+.formacion-section h2 {
+    text-align: center;
+
+    margin-bottom: 15px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #1f2937;
+}
+
+.formacion-intro {
+    max-width: 700px;
+
+    margin: 0 auto 40px;
+
+    text-align: center;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+
+/* Tarjetas */
+
+.formacion-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 30px;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 20px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(31, 41, 55, 0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Línea superior */
+
+.formacion-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #365f91,
+        #527c8a
+    );
+}
+
+
+/* Hover */
+
+.formacion-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(31, 41, 55, 0.11);
+
+    border-color: #d8dee8;
+}
+
+
+/* Tipo */
+
+.formacion-tipo {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #527c8a;
+}
+
+
+/* Título */
+
+.formacion-card h3 {
+    margin-bottom: 15px;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    color: #1f2937;
+}
+
+
+/* Descripción */
+
+.formacion-card p {
+    margin-bottom: 20px;
+
+    font-size: 0.9rem;
+    line-height: 1.7;
+
+    color: #5f6b7a;
+}
+
+
+/* Organización */
+
+.formacion-organizacion {
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: #365f91;
+}
+
+
+/* =================================
+   CURRÍCULUM
+================================= */
+
+.cv-section {
+    padding: 80px 0;
+
+    text-align: center;
+
+    background-color: #ffffff;
+}
+
+.cv-section h2 {
+    margin-bottom: 15px;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #1f2937;
+}
+
+.cv-section p {
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+.cv-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 10px 20px;
+
+    border-radius: 22px;
+
+    background-color: #365f91;
+
+    color: #ffffff;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: #2f527d;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   ÁREAS DE INTERÉS
+================================= */
+
+.interes-section {
+    padding: 80px 0;
+
+    background-color: #f7f9fc;
+}
+
+.info-box {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    border: 1px solid #e5e9f0;
+    border-radius: 20px;
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(31, 41, 55, 0.06);
+}
+
+.info-box h2 {
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #1f2937;
+}
+
+.info-box ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+.info-box li {
+    position: relative;
+
+    margin-bottom: 12px;
+
+    padding-left: 22px;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    color: #5f6b7a;
+}
+
+.info-box li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 9px;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background-color: #527c8a;
+}
+
+.info-box li:last-child {
+    margin-bottom: 0;
+}
+/* =================================
+   EVIDENCIA DE CURSOS
+================================= */
+.formacion-evidencia {
+    width: 100%;
+    height: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    background-color: #f5f7fa;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.formacion-evidencia img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.formacion-card:hover .formacion-evidencia img {
+    transform: scale(1.03);
+}
+
+/* Enlace para ver evidencia */
+
+.formacion-link {
+    display: inline-flex;
+
+    margin-top: 15px;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    background-color: #f1f5f9;
+
+    color: #365f91;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.formacion-card:hover .formacion-link {
+    background-color: #e8eef5;
+
+    transform: translateX(3px);
+}
+
+
+/* =================================
+   CONTACTO
+================================= */
+
+.contacto-section {
+    padding: 100px 20px;
+    background: #f7f8fa;
+}
+
+.contacto-box {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+
+    padding: 55px;
+
+    background: #ffffff;
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 50px rgba(31, 41, 55, 0.10);
+}
+
+
+/* =================================
+   TEXTO
+================================= */
+
+.contacto-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contacto-etiqueta {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #6b7280;
+}
+
+.contacto-texto h2 {
+    margin-bottom: 20px;
+
+    font-size: 2.2rem;
+    line-height: 1.2;
+
+    color: #1f2937;
+}
+
+.contacto-texto p {
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+
+/* =================================
+   FORMULARIO
+================================= */
+
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contacto-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contacto-campo label {
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.contacto-campo input,
+.contacto-campo textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d9dde3;
+    border-radius: 10px;
+
+    background: #fafafa;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    color: #1f2937;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.contacto-campo textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.contacto-campo input::placeholder,
+.contacto-campo textarea::placeholder {
+    color: #9ca3af;
+}
+
+.contacto-campo input:focus,
+.contacto-campo textarea:focus {
+    background: #ffffff;
+
+    border-color: #9ca3af;
+
+    box-shadow:
+        0 0 0 3px rgba(156, 163, 175, 0.15);
+}
+
+
+/* =================================
+   BOTONES
+================================= */
+
+.contacto-botones {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 5px;
+}
+
+.contacto-botones .cv-button {
+    flex: 1;
+
+    border: none;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contacto-botones .cv-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(31, 41, 55, 0.12);
+}
+
+
+/* =================================
+   WHATSAPP
+================================= */
+
+.contacto-whatsapp {
+    background: #25D366;
+    color: #ffffff;
+}
+
+.contacto-whatsapp:hover {
+    background: #20bd5a;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+    .contacto-section {
+        padding: 70px 15px;
+    }
+
+    .contacto-box {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 35px 25px;
+
+        border-radius: 20px;
+    }
+
+    .contacto-texto h2 {
+        font-size: 1.8rem;
+    }
+
+    .contacto-botones {
+        flex-direction: column;
+    }
+
+    .contacto-botones .cv-button {
+        width: 100%;
+    }
+}

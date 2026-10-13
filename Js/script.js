@@ -35,27 +35,30 @@ function cerrarRecomendacion() {
     });
 }
 
-
 function enviarWhatsApp() {
+
+    const formulario = document.getElementById("contactoForm");
+
+    if (!formulario.reportValidity()) {
+        return;
+    }
 
     const nombre = document.getElementById("nombre").value.trim();
     const correo = document.getElementById("correo").value.trim();
     const mensaje = document.getElementById("mensaje").value.trim();
 
-    if (!nombre || !correo || !mensaje) {
-        alert("Por favor completa todos los campos.");
-        return;
+    // Reemplaza por tu número de WhatsApp con código de país.
+    const telefono = "52TUNUMERO";
+
+    let texto = `Hola, soy ${nombre}.\n\n`;
+
+    if (correo) {
+        texto += `Mi correo electrónico es: ${correo}\n\n`;
     }
 
-    const numeroWhatsApp = "5582625110";
+    texto += `Mensaje: ${mensaje}`;
 
-    const texto = 
-        "Hola Yanet, mi nombre es " + nombre + 
-        ". Mi correo es " + correo + 
-        ".%0A%0A" +
-        mensaje;
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(texto)}`;
 
-    const url = "https://wa.me/" + numeroWhatsApp + "?text=" + texto;
-
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
 }
